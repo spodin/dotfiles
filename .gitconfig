@@ -3,7 +3,7 @@
     email = v@spodin.com
 
 [core]
-    excludesfile = $HOME/.gitignore_global
+    excludesfile = ~/.gitignore_global
 
 [credential]
     helper = cache
