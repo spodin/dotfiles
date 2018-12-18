@@ -15,7 +15,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set English language for Git
-export LANG=C
+export LANG="en_US.UTF-8"
 
 ZSH_THEME="spaceship"
 
