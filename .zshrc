@@ -20,7 +20,13 @@ export LANG="en_US.UTF-8"
 ZSH_THEME="spaceship"
 
 plugins=(
-  z git zsh-autosuggestions zsh-syntax-highlighting history-substring-search gradle docker
+  z
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  history-substring-search
+  gradle
+  docker
 )
 
 sourceIfExists() {
