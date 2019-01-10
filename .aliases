@@ -1,5 +1,4 @@
 # Aliases
-
 alias httpserve="python -m SimpleHTTPServer"
 
 ## Copy-Paste using XClip
