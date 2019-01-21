@@ -1,5 +1,6 @@
 # Aliases
-alias httpserve="python -m SimpleHTTPServer"
+alias ps="python -m SimpleHTTPServer 8000"
+alias js="jekyll serve --host 0.0.0.0 --incremental"
 
 ## Copy-Paste using XClip
 alias c="xclip -selection clipboard"
