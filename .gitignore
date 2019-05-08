@@ -1,7 +1,2 @@
-*
-!.zshrc
-!.aliases
-!.env-template
-!.gitconfig
-!.gitignore
-!.gitignore_global
+.idea/
+*.iml
