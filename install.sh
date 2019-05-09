@@ -9,23 +9,27 @@
 # @author Vasiliy Spodin
 
 install() {
+  local currentDir=$(pwd)
+
+  # Create symlinks
+  ln -fs $currentDir/.aliases $HOME/.aliases
+  ln -fs $currentDir/.gitconfig $HOME/.gitconfig
+  ln -fs $currentDir/.gitignore_global $HOME/.gitignore_global
+  ln -fs $currentDir/.zshrc $HOME/.zshrc
+
+  # Create environment specific configuration file from template
+  cp -rf $currentDir/.env-template $HOME/.env
+
+  echo "Completed successfully."
+}
+
+main() {
   read -r -p "Install dotfiles? [yn] " response
   if [[ $response =~ (y|Y) ]]; then
-    local currentDir=$(pwd)
-
-    # Create symlinks
-    ln -fs $currentDir/.aliases $HOME/.aliases
-    ln -fs $currentDir/.gitconfig $HOME/.gitconfig
-    ln -fs $currentDir/.gitignore_global $HOME/.gitignore_global
-    ln -fs $currentDir/.zshrc $HOME/.zshrc
-
-    # Create environment specific configuration file from template
-    cp -rf $currentDir/.env-template $HOME/.env
-
-    echo "Completed successfully."
+    install
   else
     echo "Aborted."
   fi
 }
 
-install
+main
