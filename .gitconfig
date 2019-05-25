@@ -1,6 +1,7 @@
 [user]
     name = Vasiliy Spodin
     email = v@spodin.com
+	  signingkey = 675CCB8B725DEC36
 
 [core]
     excludesfile = ~/.gitignore_global
@@ -27,3 +28,6 @@
     added = yellow
     changed = red
     untracked = cyan
+
+[commit]
+	  gpgsign = true
