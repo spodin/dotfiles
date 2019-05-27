@@ -24,6 +24,7 @@ plugins=(
   git
   gradle
   history-substring-search
+  wd
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
