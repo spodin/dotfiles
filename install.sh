@@ -18,7 +18,7 @@ install() {
   ln -fs $currentDir/.zshrc $HOME/.zshrc
 
   # Create environment specific configuration file from template
-  cp -rf $currentDir/.env-template $HOME/.env
+  cp -n $currentDir/.env-template $HOME/.env
 
   echo "Completed successfully."
 }
