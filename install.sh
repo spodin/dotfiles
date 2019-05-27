@@ -1,11 +1,6 @@
 #!/bin/sh
 
 # This script installs the dotfiles.
-#
-# Note:   Consider to backup default configuration files before execution!
-#         After confirmation this script will create symlinks and all already
-#         existent configuration files will be overridden.
-#
 # @author Vasiliy Spodin
 
 install() {
@@ -24,6 +19,12 @@ install() {
 }
 
 main() {
+  echo "
+  Consider to backup default configuration files before execution!
+  After confirmation this script will create symlinks and all already
+  existent configuration files will be overridden.
+  "
+
   read -r -p "Install dotfiles? [yn] " response
   if [[ $response =~ (y|Y) ]]; then
     install
