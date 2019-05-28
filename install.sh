@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This script installs the dotfiles.
 # @author Vasiliy Spodin
