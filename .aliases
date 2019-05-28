@@ -20,13 +20,17 @@ alias ..5="cd ../../../../.."
 
 # Docker
 function drmc-fn {
-  imgs=$(docker ps --all -q -f status=exited)
-  [ ! -z "$imgs" ] && docker rm "$imgs" || echo "There are no exited containers to remove."
+  for exited_container in `docker ps --all -q -f status=exited | awk '{print $1}'`
+  do
+    docker rm $exited_container
+  done
 }
 
 function drmid-fn {
-  imgs=$(docker images -q -f dangling=true)
-  [ ! -z "$imgs" ] && docker rmi "$imgs" || echo "No dangling images."
+  for dangling_img in `docker images -q -f dangling=true | awk '{print $1}'`
+  do
+    docker rmi $dangling_img
+  done
 }
 
 function drun-fn {
