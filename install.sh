@@ -15,6 +15,9 @@ install() {
   # Create environment specific configuration file from template
   cp -n $currentDir/.env-template $HOME/.env
 
+  # Create machine specific Git configuration file
+  touch $HOME/.gitlocal
+
   echo "Completed successfully."
 }
 
@@ -30,6 +33,7 @@ main() {
     install
   else
     echo "Aborted."
+    exit 0
   fi
 }
 

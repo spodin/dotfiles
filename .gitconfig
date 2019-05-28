@@ -1,33 +1,35 @@
-[user]
-    name = Vasiliy Spodin
-    email = v@spodin.com
-    signingkey = 675CCB8B725DEC36
-
 [core]
-    excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [credential]
-    helper = cache
+  helper = cache
 
 [color]
-    ui = auto
+  ui = auto
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-    meta = yellow
-    frag = magenta
-    old = red
-    new = green
-    whitespace = red reverse
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+  whitespace = red reverse
 
 [color "status"]
-    added = yellow
-    changed = red
-    untracked = cyan
+  added = yellow
+  changed = red
+  untracked = cyan
 
-[commit]
-    gpgsign = true
+# Include local settings from .gitlocal (requires git >= 1.7.10)
+# User setup:
+#   git config -f ~/.gitlocal user.name "Your Name"
+#   git config -f ~/.gitlocal user.email "name@example.com"
+# Commits signing:
+#   git config -f ~/.gitlocal user.signingkey <key id>
+#   git config -f ~/.gitlocal commit.gpgsign true
+[include]
+  path = ~/.gitlocal
