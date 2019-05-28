@@ -11,13 +11,9 @@
 #   - $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
 #   - $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
 
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set English language for Git
+export ZSH_THEME="spaceship"
 export LANG="en_US.UTF-8"
-
-ZSH_THEME="spaceship"
 
 plugins=(
   docker
@@ -36,13 +32,13 @@ sourceIfExists() {
   fi
 }
 
-source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
+source $ZSH/oh-my-zsh.sh
 sourceIfExists $HOME/.env
 
 bindkey '^ ' forward-word
 
-# Aliases
+# Basic aliases
 alias resource='source ~/.zshrc && echo ".zshrc has been resourced successfully"'
 
 # This MUST be at the end of file for SDKMAN to work!
