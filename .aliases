@@ -3,7 +3,7 @@ alias js="jekyll serve --host 0.0.0.0 --incremental"
 alias serv="python -m SimpleHTTPServer 8000"
 
 # Copy/paste
-if [[ `uname` == 'Darwin' ]] then # macOS
+if [[ $(uname) == 'Darwin' ]] then # macOS
   alias c="pbcopy"
   alias p="pbpaste"
 else
@@ -18,28 +18,30 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
+mkcd() {
+  mkdir -p -- "$1" && cd -P -- "$1"
+}
+
 # Docker
-function drmc-fn {
-  for exited_container in `docker ps --all -q -f status=exited | awk '{print $1}'`
-  do
+drmc_fn() {
+  for exited_container in $(docker ps --all -q -f status=exited | awk '{print $1}'); do
     docker rm $exited_container
   done
 }
 
-function drmid-fn {
-  for dangling_img in `docker images -q -f dangling=true | awk '{print $1}'`
-  do
+drmid_fn() {
+  for dangling_img in $(docker images -q -f dangling=true | awk '{print $1}'); do
     docker rmi $dangling_img
   done
 }
 
-function drun-fn {
+drun_fn() {
   docker run -it $1 ${2:/bin/bash}
 }
 
 alias dim='docker images'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
-alias drmc=drmc-fn
-alias drmid=drmid-fn
-alias drun=drun-fn
+alias drmc=drmc_fn
+alias drmid=drmid_fn
+alias drun=drun_fn
