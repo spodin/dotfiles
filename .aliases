@@ -18,6 +18,9 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
+# Commands shortcuts
+alias x+='chmod +x'
+
 mkcd() {
   mkdir -p -- "$1" && cd -P -- "$1"
 }
