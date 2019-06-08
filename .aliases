@@ -46,6 +46,10 @@ docker_logs() {
   docker logs -f $1
 }
 
+docker_stop_and_remove() {
+  docker stop $1;docker rm $1
+}
+
 alias dim='docker images'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
@@ -53,3 +57,4 @@ alias drmc=docker_rm_exited_containers
 alias drmid=docker_rm_dangling_images
 alias drun=docker_run
 alias dl=docker_logs
+alias dsr=docker_stop_and_remove
