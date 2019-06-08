@@ -42,9 +42,14 @@ docker_run() {
   docker run -it $1 ${2:/bin/bash}
 }
 
+docker_logs() {
+  docker logs -f $1
+}
+
 alias dim='docker images'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias drmc=docker_rm_exited_containers
 alias drmid=docker_rm_dangling_images
 alias drun=docker_run
+alias dl=docker_logs
