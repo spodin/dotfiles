@@ -58,3 +58,6 @@ alias drmid=docker_rm_dangling_images
 alias drun=docker_run
 alias dl=docker_logs
 alias dsr=docker_stop_and_remove
+
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'
