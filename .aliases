@@ -26,25 +26,25 @@ mkcd() {
 }
 
 # Docker
-drmc_fn() {
+docker_rm_exited_containers() {
   for exited_container in $(docker ps --all -q -f status=exited | awk '{print $1}'); do
     docker rm $exited_container
   done
 }
 
-drmid_fn() {
+docker_rm_dangling_images() {
   for dangling_img in $(docker images -q -f dangling=true | awk '{print $1}'); do
     docker rmi $dangling_img
   done
 }
 
-drun_fn() {
+docker_run() {
   docker run -it $1 ${2:/bin/bash}
 }
 
 alias dim='docker images'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
-alias drmc=drmc_fn
-alias drmid=drmid_fn
-alias drun=drun_fn
+alias drmc=docker_rm_exited_containers
+alias drmid=docker_rm_dangling_images
+alias drun=docker_run
