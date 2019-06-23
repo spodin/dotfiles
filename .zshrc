@@ -26,15 +26,10 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-sourceIfExists() {
-  if [[ -r $1 ]]; then
-    source $1
-  fi
-}
+source $ZSH/oh-my-zsh.sh
 
 source $HOME/.aliases
-source $ZSH/oh-my-zsh.sh
-sourceIfExists $HOME/.env
+[[ -s "$HOME/.env" ]] && source "$HOME/.env"
 
 bindkey '^ ' forward-word
 
