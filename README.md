@@ -3,6 +3,7 @@
 ## Installation
 
 ```bash
-git clone https://github.com/spodin/dotfiles.git && cd dotfiles
-./install.sh
+$ git clone https://github.com/spodin/dotfiles.git ~/.dotfiles
+$ cd ~/.dotfiles
+$ ./install.sh
 ```
