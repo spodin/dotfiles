@@ -7,16 +7,14 @@ install() {
   local currentDir=$(pwd)
 
   # Create symlinks
-  ln -fs $currentDir/.aliases $HOME/.aliases
-  ln -fs $currentDir/.gitconfig $HOME/.gitconfig
-  ln -fs $currentDir/.gitignore_global $HOME/.gitignore_global
-  ln -fs $currentDir/.zshrc $HOME/.zshrc
+  ln -fs ${currentDir}/.aliases $HOME/.aliases
+  ln -fs ${currentDir}/.gitconfig $HOME/.gitconfig
+  ln -fs ${currentDir}/.gitignore_global $HOME/.gitignore_global
+  ln -fs ${currentDir}/.zshrc $HOME/.zshrc
 
-  # Create environment specific configuration file from template
-  cp -n $currentDir/.env-template $HOME/.env
-
-  # Create machine specific Git configuration file
-  touch $HOME/.gitlocal
+  # Create machine specific configuration files from templates
+  cp -n ${currentDir}/templates/.env $HOME/.env
+  cp -n ${currentDir}/templates/.gitlocal $HOME/.gitlocal
 
   echo "Completed successfully."
 }
@@ -28,8 +26,8 @@ main() {
   existent configuration files will be overridden.
   "
 
-  read -r -p "Install dotfiles? [yn] " response
-  if [[ $response =~ (y|Y) ]]; then
+  read -r -p "Install dotfiles? [yn] " answer
+  if [[ ${answer} =~ (y|Y) ]]; then
     install
   else
     echo "Aborted."
