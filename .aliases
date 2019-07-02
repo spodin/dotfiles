@@ -50,7 +50,7 @@ docker_logs() {
 }
 
 docker_stop_and_remove() {
-  docker stop $1;docker rm $1
+  docker stop "$@";docker rm "$@"
 }
 
 alias dim='docker images'
