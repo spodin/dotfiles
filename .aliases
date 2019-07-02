@@ -6,7 +6,7 @@ alias js="jekyll serve --host 0.0.0.0 --incremental"
 alias serv="python -m SimpleHTTPServer 8000"
 
 # Copy/paste
-if [[ $(uname) == 'Darwin' ]] then # macOS
+if [[ $(uname) == 'Darwin' ]]; then # macOS
   alias c="pbcopy"
   alias p="pbpaste"
 else
