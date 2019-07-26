@@ -24,14 +24,10 @@ alias ..5="cd ../../../../.."
 # Commands shortcuts
 alias x+='chmod +x'
 
-mkcd() {
-  mkdir -p -- "$1" && cd -P -- "$1"
-}
+mkcd() { mkdir -p -- "$1" && cd -P -- "$1" }
 
 # Check which process occupies a given port
-port_occupiers() {
-  lsof -i -n -P | grep TCP | grep "$1"
-}
+port_occupiers() { lsof -i -n -P | grep TCP | grep "$1" }
 alias onport=port_occupiers
 
 # Docker
@@ -47,17 +43,9 @@ docker_rm_dangling_images() {
   done
 }
 
-docker_run() {
-  docker run -it $1 ${2:/bin/bash}
-}
-
-docker_logs() {
-  docker logs -f $1
-}
-
-docker_stop_and_remove() {
-  docker stop "$@";docker rm "$@"
-}
+docker_run() { docker run -it $1 ${2:/bin/bash} }
+docker_logs() { docker logs -f $1 }
+docker_stop_and_remove() { docker stop "$@";docker rm "$@" }
 
 alias dim='docker images'
 alias dps='docker ps'
