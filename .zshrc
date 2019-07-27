@@ -13,6 +13,7 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="spaceship"
+
 export LANG="en_US.UTF-8"
 
 plugins=(
@@ -26,10 +27,10 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
-source $HOME/.aliases
 [[ -s "$HOME/.env" ]] && source "$HOME/.env"
+[[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 bindkey '^ ' forward-word
 
