@@ -16,6 +16,8 @@ export ZSH_THEME="spaceship"
 
 export LANG="en_US.UTF-8"
 
+export GPG_TTY=$(tty)
+
 plugins=(
   docker
   git
