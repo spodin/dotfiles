@@ -10,6 +10,7 @@ install() {
   ln -fs ${currentDir}/.aliases $HOME/.aliases
   ln -fs ${currentDir}/.gitconfig $HOME/.gitconfig
   ln -fs ${currentDir}/.gitignore_global $HOME/.gitignore_global
+  ln -fs ${currentDir}/.hyper.js $HOME/.hyper.js
   ln -fs ${currentDir}/.zshrc $HOME/.zshrc
 
   # Create machine specific configuration files from templates
