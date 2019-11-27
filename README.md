@@ -9,10 +9,7 @@
 
 1. Clone:
 
-   ```bash
-   git clone https://github.com/spodin/dotfiles.git ~/.dotfiles
-   cd ~/.dotfiles
-   ```
+   `git clone https://github.com/spodin/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
 
 2. Stuff Zsh with custom theme and plugins using 'Oh My Zsh':
 
