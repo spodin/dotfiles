@@ -1,9 +1,19 @@
-# Enable aliases with sudo (see: http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo)
-alias sudo='sudo '
+#
+# Aliases
+#
 
-# Servers
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
+alias sudo="sudo "
+alias x+="chmod +x"
 alias js="jekyll serve --host 0.0.0.0 --incremental"
 alias serv="python -m SimpleHTTPServer 8000"
+
+mkcd() { mkdir -p -- "$1" && cd -P -- "$1" }
+onport() { lsof -i -n -P | grep TCP | grep "$1" }
 
 # Copy/paste
 if [[ $(uname) == 'Darwin' ]]; then # macOS
@@ -14,47 +24,28 @@ else
   alias p="xclip -selection clipboard -o"
 fi
 
-# Easier navigation
-alias ..="cd .."
-alias ..2="cd ../.."
-alias ..3="cd ../../.."
-alias ..4="cd ../../../.."
-alias ..5="cd ../../../../.."
-
-# Commands shortcuts
-alias x+='chmod +x'
-
-mkcd() { mkdir -p -- "$1" && cd -P -- "$1" }
-
-# Check which process occupies a given port
-port_occupiers() { lsof -i -n -P | grep TCP | grep "$1" }
-alias onport=port_occupiers
-
+#
 # Docker
-docker_rm_exited_containers() {
+#
+
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dim="docker images"
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+
+drmc() {
   for exited_container in $(docker ps --all -q -f status=exited | awk '{print $1}'); do
     docker rm $exited_container
   done
 }
 
-docker_rm_dangling_images() {
+drmid() {
   for dangling_img in $(docker images -q -f dangling=true | awk '{print $1}'); do
     docker rmi $dangling_img
   done
 }
 
-docker_run() { docker run -it $1 ${2:/bin/bash} }
-docker_logs() { docker logs -f $1 }
-docker_stop_and_remove() { docker stop "$@";docker rm "$@" }
-
-alias dim='docker images'
-alias dps='docker ps'
-alias dpsa='docker ps -a'
-alias drmc=docker_rm_exited_containers
-alias drmid=docker_rm_dangling_images
-alias drun=docker_run
-alias dl=docker_logs
-alias dsr=docker_stop_and_remove
-
-alias dcu='docker-compose up -d'
-alias dcd='docker-compose down'
+dl() { docker logs -f $1 }
+dsr() { docker stop "$@";docker rm "$@" }
+drun() { docker run -it $1 ${2:/bin/bash} }
