@@ -1,21 +1,24 @@
 #!/bin/bash
 
+#
 # This script installs the dotfiles.
 # @author Vasiliy Spodin
+#
+
+# Root dotfiles directory
+DOTFILES="$HOME/.dotfiles"
 
 install() {
-  local currentDir=$(pwd)
-
   # Create symlinks
-  ln -fs ${currentDir}/.aliases $HOME/.aliases
-  ln -fs ${currentDir}/.gitconfig $HOME/.gitconfig
-  ln -fs ${currentDir}/.gitignore_global $HOME/.gitignore_global
-  ln -fs ${currentDir}/.hyper.js $HOME/.hyper.js
-  ln -fs ${currentDir}/.zshrc $HOME/.zshrc
+  ln -fs ${DOTFILES}/.aliases $HOME/.aliases
+  ln -fs ${DOTFILES}/.gitconfig $HOME/.gitconfig
+  ln -fs ${DOTFILES}/.gitignore_global $HOME/.gitignore_global
+  ln -fs ${DOTFILES}/.hyper.js $HOME/.hyper.js
+  ln -fs ${DOTFILES}/.zshrc $HOME/.zshrc
 
   # Create machine specific configuration files from templates
-  cp -n ${currentDir}/templates/.env $HOME/.env
-  cp -n ${currentDir}/templates/.gitlocal $HOME/.gitlocal
+  cp -n ${DOTFILES}/templates/.env $HOME/.env
+  cp -n ${DOTFILES}/templates/.gitlocal $HOME/.gitlocal
 
   echo "Completed successfully."
 }
@@ -28,6 +31,7 @@ main() {
   echo
 
   read -r -p "Install dotfiles? [yn] " answer
+
   if [[ ${answer} =~ (y|Y) ]]; then
     install
   else
