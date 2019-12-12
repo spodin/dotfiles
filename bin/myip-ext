@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+#
+# Prints my external IP address.
+#
+
+curl https://ipinfo.io/ip
