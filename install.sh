@@ -19,6 +19,7 @@ install() {
   # Create machine specific configuration files from templates
   cp -n ${DOTFILES}/templates/.env $HOME/.env
   cp -n ${DOTFILES}/templates/.gitlocal $HOME/.gitlocal
+  cp -n ${DOTFILES}/templates/ssh/config $HOME/.ssh/config
 
   echo "Completed successfully."
 }

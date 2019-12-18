@@ -1,0 +1,5 @@
+#Host host-alias
+#     HostName real host/IP address
+#     User username
+#     RemoteCommand command to execute
+#     RequestTTY yes
