@@ -11,5 +11,3 @@ if [[ -f "$SSH_CONFIG" ]]; then
 else
   echo "'$SSH_CONFIG' not found"
 fi
-
-
