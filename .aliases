@@ -8,17 +8,27 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
+# Enable aliases with sudo
+# http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo="sudo "
+
+# Show $PATH in readable view
 alias path='echo -e ${PATH//:/\\n}'
+
 alias x+="chmod +x"
 alias rm="rm -i"
 
+# Download file with original filename
 alias get="curl -O -L"
+
+# Download web page with all assets
 alias getpage='wget --no-clobber --page-requisites --html-extension --convert-links --no-host-directories'
 
+# Change directory to newly created
 take() { mkdir -p $@ && cd ${@:$#} }
 
 # Copy/paste
+# For Ubuntu based systems `xclip` is required (sudo apt-get install xclip)
 if [[ $(uname) == 'Darwin' ]]; then # macOS
   alias c="pbcopy"
   alias p="pbpaste"
