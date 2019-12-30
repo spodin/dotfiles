@@ -16,7 +16,7 @@ alias rm="rm -i"
 alias get="curl -O -L"
 alias getpage='wget --no-clobber --page-requisites --html-extension --convert-links --no-host-directories'
 
-mkcd() { mkdir -p -- "$1" && cd -P -- "$1" }
+take() { mkdir -p $@ && cd ${@:$#} }
 
 # Copy/paste
 if [[ $(uname) == 'Darwin' ]]; then # macOS
