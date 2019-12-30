@@ -3,7 +3,7 @@
 ## Requirements
 
 - Git
-- [Zsh](https://www.zsh.org) and [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) as it's configuration manager
+- [Zsh](https://www.zsh.org) and '[Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)' as it's configuration manager
 
 ## Installation
 
@@ -13,7 +13,7 @@
 
 2. Stuff Zsh with custom theme and plugins using 'Oh My Zsh':
 
-   `source ./configure_zsh.sh`
+   `./configure_zsh.sh`
    
 3. Install dotfiles:
 
