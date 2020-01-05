@@ -1,0 +1,101 @@
+#!/usr/bin/env zsh
+
+#
+# Updates various system components depending on their presence.
+#
+
+e='\033'
+RESET="${e}[0m"
+CYAN="${e}[0;96m"
+RED="${e}[0;91m"
+GREEN="${e}[0;92m"
+
+exists() {
+  command -v $1 > /dev/null 2>&1
+}
+
+info() {
+  echo -e "${CYAN}${*}${RESET}"
+}
+
+error() {
+  echo -e "${RED}${*}${RESET}"
+}
+
+success() {
+  echo -e "${GREEN}${*}${RESET}"
+}
+
+finish() {
+  success "Done."
+  echo
+  sleep 1
+}
+
+update_dotfiles() {
+  info "Updating dotfiles"
+
+  cd ${DOTFILES} && git pull origin master
+
+  if [[ $? -eq 0 ]]; then
+    finish
+  else
+    error "There was an error updating!"
+  fi
+}
+
+update_zsh() {
+  if [[ ! -f $ZSH/tools/upgrade.sh ]]; then
+    return
+  fi
+
+  info "Updating Oh My Zsh"
+
+  env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
+
+  finish
+}
+
+update_brew() {
+  if ! exists brew; then
+    return
+  fi
+
+  info "Updating Homebrew"
+
+  brew update
+  brew upgrade
+  brew cleanup
+
+  finish
+}
+
+update_apt_get() {
+  if ! exists apt-get; then
+    return
+  fi
+
+  info "Updating Ubuntu and installed packages"
+
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get autoremove -y
+  sudo apt-get autoclean -y
+
+  finish
+}
+
+on_finish() {
+  success "Everything has been updated!"
+  echo
+}
+
+main() {
+  update_zsh
+  update_dotfiles
+  update_brew
+  update_apt_get
+  on_finish
+}
+
+main "$*"
