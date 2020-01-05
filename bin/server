@@ -8,11 +8,16 @@
 #
 
 port="${1:-8000}"
-echo "Directory served at: http://localhost:$port"
 
-my_ip=$(ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p")
-echo "My IP: $my_ip"
-echo
+echo ""
+echo "Serving '$(pwd)' directory at:"
+
+# Print ip:port pairs for quicker and easier link sharing
+while read -r my_ip; do
+  echo "http://$my_ip:$port"
+done < <(ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p")
+
+echo ""
 
 # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
 # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
