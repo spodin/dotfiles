@@ -9,7 +9,6 @@
 
 port="${1:-8000}"
 
-echo ""
 echo "Serving '$(pwd)' directory at:"
 
 # Print ip:port pairs for quicker and easier link sharing
