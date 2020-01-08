@@ -65,6 +65,13 @@ update_brew() {
 
   brew update
   brew upgrade
+
+  # see: https://github.com/buo/homebrew-cask-upgrade#installation
+  if brew tap | grep -q "buo/cask-upgrade"; then
+    info "+ updating Homebrew Cask"
+    brew cu -y --no-brew-update --cleanup
+  fi
+
   brew cleanup
 
   finish
