@@ -98,10 +98,10 @@ on_finish() {
 }
 
 main() {
-  update_zsh
-  update_dotfiles
   update_brew
   update_apt_get
+  update_zsh
+  update_dotfiles
   on_finish
 }
 
