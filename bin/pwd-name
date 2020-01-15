@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+#
+# Print working directory name without full path.
+#
+
+basename "$PWD"
