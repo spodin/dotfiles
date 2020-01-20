@@ -10,11 +10,11 @@ DOTFILES="$HOME/.dotfiles"
 
 install() {
   # Create symlinks
-  ln -fs ${DOTFILES}/.aliases $HOME/.aliases
-  ln -fs ${DOTFILES}/.gitconfig $HOME/.gitconfig
-  ln -fs ${DOTFILES}/.gitignore_global $HOME/.gitignore_global
-  ln -fs ${DOTFILES}/.hyper.js $HOME/.hyper.js
-  ln -fs ${DOTFILES}/.zshrc $HOME/.zshrc
+  ln -fs ${DOTFILES}/home/.aliases $HOME/.aliases
+  ln -fs ${DOTFILES}/home/.gitconfig $HOME/.gitconfig
+  ln -fs ${DOTFILES}/home/.gitignore_global $HOME/.gitignore_global
+  ln -fs ${DOTFILES}/home/.hyper.js $HOME/.hyper.js
+  ln -fs ${DOTFILES}/home/.zshrc $HOME/.zshrc
 
   # Create machine specific configuration files from templates
   cp -n ${DOTFILES}/templates/.env $HOME/.env
