@@ -18,3 +18,21 @@
 3. Install dotfiles:
 
    `./install.sh`
+   
+## Post-installation steps
+
+1. Setup Git identity:
+
+   ```bash
+   git config -f ~/.gitlocal user.name "Your Name"
+   git config -f ~/.gitlocal user.email "name@example.com"
+   
+   git config -f ~/.gitlocal commit.gpgsign true
+   git config -f ~/.gitlocal user.signingkey <key id>
+   ```
+   
+2. Set environment specific settings (proxy, SSH connections etc.) in files:
+
+   - `~/.env`
+   - `~/.npmrc`
+   - `~/.ssh/config`
