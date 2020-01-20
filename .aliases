@@ -2,6 +2,9 @@
 # Aliases
 #
 
+# Reload Zsh configuration file
+alias resource='source ~/.zshrc && echo ".zshrc has been resourced successfully"'
+
 alias ..="cd .."
 alias ..2="cd ../.."
 alias ..3="cd ../../.."
