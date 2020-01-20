@@ -45,7 +45,10 @@ alias resource='source ~/.zshrc && echo ".zshrc has been resourced successfully"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
-bindkey '^ ' forward-word
+# Key bindings
+bindkey '^[(' kill-word         # [Fn-Option-Delete] - delete forward word (macOS)
+bindkey '^[[3;5~' kill-word     # [Ctrl-Delete] - delete forward word
+bindkey '^H' backward-kill-word # [Ctrl-Backspace] - delete backward word
 
 #
 # "robbyrussell" Preset for Spaceship ZSH Prompt
