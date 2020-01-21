@@ -24,15 +24,15 @@ _load_settings "$DOTFILES/zsh/configs"
 source "$ZSH/oh-my-zsh.sh"
 
 # Extend $PATH without duplicates
-extend_path() {
+_extend_path() {
   if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
     export PATH="$1:$PATH"
   fi
 }
 
 # Add custom binaries and scripts to PATH
-[[ -d "$HOME/.bin" ]] && extend_path "$HOME/.bin"
-[[ -d "$DOTFILES/bin" ]] && extend_path "$DOTFILES/bin"
+[[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
+[[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
 
 # Source environment related files
 [[ -s "$HOME/.env" ]] && source "$HOME/.env"
