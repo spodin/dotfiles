@@ -28,7 +28,7 @@ alias get="curl -O -L"
 alias getpage='wget --no-clobber --page-requisites --html-extension --convert-links --no-host-directories'
 
 # Change directory to newly created
-take() { mkdir -p $@ && cd ${@:$#} }
+mcd() { mkdir -p $@ && cd ${@:$#} }
 
 # Copy/paste
 # For Ubuntu based systems `xclip` is required (sudo apt-get install xclip)
