@@ -11,6 +11,9 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
+alias l="ls -lah"
+alias ll="ls -lh"
+
 # Enable aliases with sudo
 # http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo="sudo "
