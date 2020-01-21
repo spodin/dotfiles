@@ -27,3 +27,7 @@
 # Include machine specific settings (requires Git version >= 1.7.10)
 [include]
   path = ~/.gitlocal
+
+# Include commit template
+[commit]
+  template = ~/.gitmessage
