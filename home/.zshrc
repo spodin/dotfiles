@@ -8,22 +8,20 @@ export LANG="en_US.UTF-8"
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="spaceship"
 
-plugins=(
-  docker
-  git
-  gradle
-  history-substring-search
-  jira
-  wd
-  z
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+# Source all files from specified directory
+_load_settings() {
+  _dir="$1"
+  if [ -d "$_dir" ]; then
+    for config in "$_dir"/**/*(N-.); do
+      . $config
+    done
+  fi
+}
 
+_load_settings "$DOTFILES/zsh/configs"
+
+# Load Oh My Zsh
 source "$ZSH/oh-my-zsh.sh"
-source "$DOTFILES/zsh/sdkman.zsh"
-source "$DOTFILES/zsh/key-bindings.zsh"
-source "$DOTFILES/zsh/theme-preset.zsh"
 
 # Extend $PATH without duplicates
 extend_path() {
