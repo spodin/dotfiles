@@ -30,6 +30,9 @@ alias get="curl -O -L"
 # Download web page with all assets
 alias getpage='wget --no-clobber --page-requisites --html-extension --convert-links --no-host-directories'
 
+# Go to the /home/$USER (~) directory and clears window of your terminal
+alias q="~ && clear"
+
 # Change directory to newly created
 mcd() { mkdir -p $@ && cd ${@:$#} }
 
