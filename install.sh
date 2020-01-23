@@ -10,7 +10,6 @@ DOTFILES="$HOME/.dotfiles"
 
 install() {
   # Create symlinks
-  ln -fs ${DOTFILES}/home/.aliases $HOME/.aliases
   ln -fs ${DOTFILES}/home/.gitconfig $HOME/.gitconfig
   ln -fs ${DOTFILES}/home/.gitignore_global $HOME/.gitignore_global
   ln -fs ${DOTFILES}/home/.hyper.js $HOME/.hyper.js

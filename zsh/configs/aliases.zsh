@@ -46,7 +46,7 @@ mcd() { mkdir -p $@ && cd ${@:$#} }
 # Copy/paste
 # For Ubuntu based systems `xclip` is required (sudo apt-get install xclip)
 if [[ $(uname) == 'Darwin' ]]; then # macOS
-  alias c="pbcopy"
+  alias c="xargs echo -n | pbcopy"
   alias p="pbpaste"
 else
   alias c="xargs echo -n | xclip -selection clipboard"
