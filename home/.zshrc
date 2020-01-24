@@ -3,8 +3,6 @@
 #
 
 export DOTFILES="$HOME/.dotfiles"
-export GPG_TTY=$(tty)
-export LANG="en_US.UTF-8"
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="spaceship"
 
