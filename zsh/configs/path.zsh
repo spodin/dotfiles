@@ -12,3 +12,6 @@ _extend_path() {
 # Add custom binaries and scripts to PATH
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
+
+# Alias to print $PATH in readable view
+alias path='echo -e ${PATH//:/\\n}'
