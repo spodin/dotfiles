@@ -17,3 +17,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Midnight Commander skin
 export MC_SKIN="nicedark"
+
+# Load fzf configuration (https://github.com/junegunn/fzf)
+[[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
