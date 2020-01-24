@@ -1,3 +1,7 @@
+#
+# Local Git configuration.
+#
+
 [user]
   # git config -f ~/.gitlocal user.name "Your Name"
   name =

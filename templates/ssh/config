@@ -1,3 +1,8 @@
+#
+# SSH client configuration.
+# See `man ssh_config` for other configuration properties.
+#
+
 #Host host-alias
 #     HostName real host/IP address
 #     User username
