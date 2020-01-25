@@ -44,18 +44,6 @@ update_dotfiles() {
   fi
 }
 
-update_zsh() {
-  if [[ ! -f $ZSH/tools/upgrade.sh ]]; then
-    return
-  fi
-
-  info "Updating Oh My Zsh"
-
-  env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
-
-  finish
-}
-
 update_brew() {
   if ! exists brew; then
     return
@@ -100,7 +88,6 @@ on_finish() {
 main() {
   update_brew
   update_apt_get
-  update_zsh
   update_dotfiles
   on_finish
 }
