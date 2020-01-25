@@ -54,3 +54,13 @@ elif _exists xclip; then
   alias c="xclip -selection clipboard"
   alias p="xclip -selection clipboard -o"
 fi
+
+# Clone repository and cd into it
+clone() {
+  git clone $@
+  if [[ "$2" ]]; then
+    cd "$2"
+  else
+    cd $(basename "$1" .git)
+  fi
+}
