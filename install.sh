@@ -2,13 +2,12 @@
 
 #
 # This script installs the dotfiles.
-# @author Vasiliy Spodin
 #
 
 # Root dotfiles directory
 DOTFILES="$HOME/.dotfiles"
 
-install() {
+install_dotfiles() {
   # Create symlinks
   ln -fs ${DOTFILES}/home/.gitconfig ${HOME}/.gitconfig
   ln -fs ${DOTFILES}/home/.gitignore_global ${HOME}/.gitignore_global
@@ -21,10 +20,16 @@ install() {
   cp -n ${DOTFILES}/templates/.gitmessage ${HOME}/.gitmessage
   cp -n ${DOTFILES}/templates/.warprc ${HOME}/.warprc
   cp -n ${DOTFILES}/templates/ssh/config ${HOME}/.ssh/config
+}
 
+install_ohmyzsh() {
   # Symlink embedded Oh My Zsh
   ln -fs ${DOTFILES}/zsh/ohmyzsh ${HOME}/.oh-my-zsh
+}
 
+install() {
+  install_dotfiles
+  install_ohmyzsh
   echo "Completed successfully."
 }
 
