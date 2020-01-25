@@ -16,7 +16,7 @@ _load_settings() {
 }
 
 # Load configuration files
-_load_settings "$DOTFILES/zsh/configs"
+_load_settings "$DOTFILES/zsh"
 
 # Load Oh My Zsh
 source "$ZSH/oh-my-zsh.sh"

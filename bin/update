@@ -32,18 +32,6 @@ finish() {
   sleep 1
 }
 
-update_dotfiles() {
-  info "Updating dotfiles"
-
-  cd ${DOTFILES} && git pull origin master
-
-  if [[ $? -eq 0 ]]; then
-    finish
-  else
-    error "There was an error updating!"
-  fi
-}
-
 update_brew() {
   if ! exists brew; then
     return
@@ -80,6 +68,30 @@ update_apt_get() {
   finish
 }
 
+update_zsh() {
+  if [[ ! -f $ZSH/tools/upgrade.sh ]]; then
+    return
+  fi
+
+  info "Updating Oh My Zsh"
+
+  env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
+
+  finish
+}
+
+update_dotfiles() {
+  info "Updating dotfiles"
+
+  cd ${DOTFILES} && git pull origin master
+
+  if [[ $? -eq 0 ]]; then
+    finish
+  else
+    error "There was an error updating!"
+  fi
+}
+
 on_finish() {
   success "Everything has been updated!"
   echo
@@ -88,6 +100,7 @@ on_finish() {
 main() {
   update_brew
   update_apt_get
+  update_zsh
   update_dotfiles
   on_finish
 }

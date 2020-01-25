@@ -7,6 +7,17 @@
 # Root dotfiles directory
 DOTFILES="$HOME/.dotfiles"
 
+install_ohmyzsh() {
+  installation_dir="$HOME/.oh-my-zsh"
+  echo "Installing Oh My Zsh to $installation_dir ..."
+
+  if [[ ! -d ${installation_dir} ]]; then
+    git clone https://github.com/ohmyzsh/ohmyzsh.git ${installation_dir}
+  else
+    echo "Oh My Zsh has been installed previously (detected at $installation_dir)"
+  fi
+}
+
 install_dotfiles() {
   # Create symlinks
   ln -fs ${DOTFILES}/home/.gitconfig ${HOME}/.gitconfig
@@ -22,14 +33,11 @@ install_dotfiles() {
   cp -n ${DOTFILES}/templates/ssh/config ${HOME}/.ssh/config
 }
 
-install_ohmyzsh() {
-  # Symlink embedded Oh My Zsh
-  ln -fs ${DOTFILES}/zsh/ohmyzsh ${HOME}/.oh-my-zsh
-}
-
 install() {
-  install_dotfiles
   install_ohmyzsh
+  install_dotfiles
+
+  echo
   echo "Completed successfully."
 }
 
