@@ -24,6 +24,7 @@ install_dotfiles() {
   ln -fs ${DOTFILES}/home/.gitignore_global ${HOME}/.gitignore_global
   ln -fs ${DOTFILES}/home/.hyper.js ${HOME}/.hyper.js
   ln -fs ${DOTFILES}/home/.zshrc ${HOME}/.zshrc
+  ln -fs ${DOTFILES}/home/.hushlogin ${HOME}/.hushlogin
 
   # Create machine specific configuration files from templates
   cp -n ${DOTFILES}/templates/.env ${HOME}/.env
