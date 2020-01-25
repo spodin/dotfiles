@@ -22,6 +22,9 @@ install() {
   cp -n ${DOTFILES}/templates/.warprc $HOME/.warprc
   cp -n ${DOTFILES}/templates/ssh/config $HOME/.ssh/config
 
+  # Symlink embedded Oh My Zsh
+  ln -fs ${DOTFILES}/zsh/ohmyzsh $HOME/.oh-my-zsh
+
   echo "Completed successfully."
 }
 

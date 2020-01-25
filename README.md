@@ -2,24 +2,21 @@
 
 ![cover image](https://user-images.githubusercontent.com/8811713/72927842-9e956600-3d5f-11ea-9f07-29adc53c968b.png)
 
-## Requirements
-
-- Git
-- [Zsh](https://www.zsh.org) and '[Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)' as it's configuration manager
-
 ## Installation
+
+Git and [Zsh](https://www.zsh.org) are required.
 
 1. Clone:
 
-   `git clone https://github.com/spodin/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
+   `git clone --recursive https://github.com/spodin/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
+   
+2. Install dotfiles:
+   
+    `./install.sh`
 
-2. Stuff Zsh with custom theme and plugins using 'Oh My Zsh':
+3. Stuff Zsh with custom theme and plugins using 'Oh My Zsh':
 
    `./configure_zsh.sh`
-   
-3. Install dotfiles:
-
-   `./install.sh`
    
 ## Post-installation steps
 
