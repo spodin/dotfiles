@@ -4,21 +4,34 @@
 # This script installs the dotfiles.
 #
 
-# Root dotfiles directory
 DOTFILES="$HOME/.dotfiles"
 
 install_ohmyzsh() {
   installation_dir="$HOME/.oh-my-zsh"
-  echo "Installing Oh My Zsh to $installation_dir ..."
 
-  if [[ ! -d ${installation_dir} ]]; then
-    git clone https://github.com/ohmyzsh/ohmyzsh.git ${installation_dir}
+  ohmyzsh_installed=0
+
+  if [[ -d ${installation_dir} ]]; then
+    echo "Oh My Zsh is already installed to $installation_dir"
   else
-    echo "Oh My Zsh has been installed previously (detected at $installation_dir)"
+    echo "Installing Oh My Zsh to $installation_dir ..."
+    git clone https://github.com/ohmyzsh/ohmyzsh.git ${installation_dir}
+    ohmyzsh_installed=$?
+  fi
+
+  if [[ ${ohmyzsh_installed} -eq 0 ]]; then
+    # Install theme and custom plugins
+    . ${DOTFILES}/custom.sh && install_customizations
+  else
+    echo
+    echo "Fatal error: unable to install Oh My Zsh!"
+    exit 1
   fi
 }
 
 install_dotfiles() {
+  echo "Installing dotfiles..."
+
   # Create symlinks
   ln -fs ${DOTFILES}/home/.gitconfig ${HOME}/.gitconfig
   ln -fs ${DOTFILES}/home/.gitignore_global ${HOME}/.gitignore_global
@@ -37,9 +50,6 @@ install_dotfiles() {
 install() {
   install_ohmyzsh
   install_dotfiles
-
-  # Install theme and custom plugins
-  . ${DOTFILES}/configure.sh
 
   echo
   echo "Completed successfully."
