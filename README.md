@@ -6,17 +6,12 @@
 
 Git and [Zsh](https://www.zsh.org) are required.
 
-1. Clone:
+Clone and install:
 
-   `git clone https://github.com/spodin/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
-   
-2. Install dotfiles:
-   
-    `./install.sh`
-
-3. Stuff Zsh with custom theme and plugins using 'Oh My Zsh':
-
-   `./configure_zsh.sh`
+```bash
+  git clone https://github.com/spodin/dotfiles.git ~/.dotfiles && \ 
+  ~/.dotfiles/install.sh
+```
    
 ## Post-installation steps
 

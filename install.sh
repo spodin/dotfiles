@@ -38,6 +38,9 @@ install() {
   install_ohmyzsh
   install_dotfiles
 
+  # Install theme and custom plugins
+  . ${DOTFILES}/configure.sh
+
   echo
   echo "Completed successfully."
 }
