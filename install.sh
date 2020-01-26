@@ -47,11 +47,6 @@ install() {
 
 main() {
   echo
-  echo "Consider to backup default configuration files before execution!"
-  echo "After confirmation this script will create symlinks and all already"
-  echo "existent configuration files will be overridden."
-  echo
-
   read -r -p "Install dotfiles? [yn] " answer
 
   if [[ ${answer} =~ (y|Y) ]]; then
