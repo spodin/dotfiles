@@ -6,6 +6,23 @@ export DOTFILES="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="spaceship"
 
+# Oh My Zsh Plugins
+# https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+plugins=(
+  docker
+  git
+  gradle
+  history-substring-search
+  jira
+  wd
+  z
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+# Load Oh My Zsh
+. "$ZSH/oh-my-zsh.sh"
+
 _load_settings() {
   _dir="$1"
   if [ -d "$_dir" ]; then
@@ -17,9 +34,6 @@ _load_settings() {
 
 # Load configuration files
 _load_settings "$DOTFILES/zsh"
-
-# Load Oh My Zsh
-source "$ZSH/oh-my-zsh.sh"
 
 # Load local configuration
 [[ -s "$HOME/.env" ]] && source "$HOME/.env"
