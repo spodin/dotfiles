@@ -10,7 +10,7 @@ Clone and install:
 
 `git clone https://github.com/spodin/dotfiles.git ~/.dotfiles && ~/.dotfiles/install.sh`
    
-## Post-installation steps
+## Post-installation Steps
 
 1. Setup Git identity:
 
@@ -24,3 +24,21 @@ Clone and install:
    - `~/.env`
    - `~/.npmrc`
    - `~/.ssh/config`
+   
+optionally:
+   
+- install [fzf](https://github.com/junegunn/fzf):
+
+  `git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install`
+  
+## Structure Overview
+
+```
+~/.dotfiles
+├── bin          # binaries and useful commands
+├── custom.sh    # 'Oh My Zsh', theme and plugins installation script
+├── home         # will be symlinked into user's home directory
+├── install.sh   # main dotfiles installation script
+├── templates    # templates for machine specific files creation
+└── zsh          # aliases, key bindings and other customizations
+```
