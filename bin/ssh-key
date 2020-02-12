@@ -5,8 +5,9 @@
 #
 
 file="$HOME/.ssh/id_rsa.pub"
-if [ ! -f "$file" ]; then
-	ssh-keygen -t rsa
+
+if [[ ! -f "$file" ]]; then
+  ssh-keygen -t rsa
 fi
 
 cat "$file"
