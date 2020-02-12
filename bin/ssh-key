@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+#
+# Prints public SSH key.
+#
+
+file="$HOME/.ssh/id_rsa.pub"
+if [ ! -f "$file" ]; then
+	ssh-keygen -t rsa
+fi
+
+cat "$file"
