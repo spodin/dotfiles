@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#
+# Simple script to backup machine specific dotfiles.
+#
+
+BACKUP_PATH="${DOTFILES_BACKUPS:-"$HOME/.dotfiles.backup"}"
+BACKUP_FILENAME="$BACKUP_PATH/dotfiles_`date '+%Y-%m-%d_%H-%M-%S'`.tar.gz"
+
+TARGETS=(
+  ${HOME}/.env
+  ${HOME}/.gitlocal
+  ${HOME}/.gitmessage
+  ${HOME}/.ssh/config
+  ${HOME}/.warprc
+  ${HOME}/.z
+  ${HOME}/.zsh_history
+)
+
+backup() {
+  files=$1
+  if [[ -z "$files" ]]; then
+    echo "No files to backup"
+    exit 1
+  fi
+
+  echo "Backup '$files' to '$BACKUP_FILENAME'"
+
+  mkdir -p ${BACKUP_PATH} && tar -czf ${BACKUP_FILENAME} ${files}
+}
+
+main() {
+  existent_targets=""
+
+  for target in "${TARGETS[@]}"
+  do
+    if [[ -f "$target" || -d "$target" ]]; then
+      existent_targets="$existent_targets $target"
+    fi
+  done
+
+  backup "$existent_targets"
+}
+
+main
