@@ -8,6 +8,7 @@ BACKUP_PATH="${DOTFILES_BACKUPS:-"$HOME/.dotfiles.backup"}"
 BACKUP_FILENAME="$BACKUP_PATH/dotfiles_`date '+%Y-%m-%d_%H-%M-%S'`.tar.gz"
 
 TARGETS=(
+  ${HOME}/.bin
   ${HOME}/.env
   ${HOME}/.gitlocal
   ${HOME}/.gitmessage
