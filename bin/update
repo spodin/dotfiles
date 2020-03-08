@@ -80,6 +80,18 @@ update_zsh() {
   finish
 }
 
+update_fzf() {
+  if [[ ! -d $HOME/.fzf ]]; then
+    return
+  fi
+
+  info "Updating fzf"
+
+  cd ${HOME}/.fzf && git pull origin master
+
+  finish
+}
+
 update_dotfiles() {
   info "Updating dotfiles"
 
@@ -101,6 +113,7 @@ main() {
   update_brew
   update_apt_get
   update_zsh
+  update_fzf
   update_dotfiles
   on_finish
 }
