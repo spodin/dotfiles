@@ -18,5 +18,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Midnight Commander skin
 export MC_SKIN="nicedark"
 
+# Bat theme (https://github.com/sharkdp/bat#highlighting-theme)
+export BAT_THEME="TwoDark"
+
 # Load fzf configuration (https://github.com/junegunn/fzf)
 [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
