@@ -25,11 +25,19 @@ Clone and install:
    - `~/.npmrc`
    - `~/.ssh/config`
    
-optionally:
+optionally install:
+
+- [bat](https://github.com/sharkdp/bat#installation) 
    
-- install [fzf](https://github.com/junegunn/fzf):
+- [fzf](https://github.com/junegunn/fzf):
 
   `git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install`
+  
+- [SDKMAN](https://sdkman.io/install) to manage Maven, Gradle versions
+
+- [jEnv](https://github.com/jenv/jenv#11-installing-jenv) to manage JDK versions:
+
+  `git clone https://github.com/jenv/jenv.git ~/.jenv`
   
 ## Structure Overview
 
