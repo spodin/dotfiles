@@ -41,6 +41,9 @@ alias q="~ && clear"
 # Bat (https://github.com/sharkdp/bat)
 _exists bat && alias cat="bat --style=numbers,changes"
 
+# Print $PATH in readable view
+alias path='echo -e ${PATH//:/\\n}'
+
 # Change directory to newly created
 mcd() {
   mkdir -p $@ && cd ${@:$#}
