@@ -50,6 +50,7 @@ mcd() {
 }
 
 # Copy/paste
+# Intended to use with pipes, e.g.: cat <somefile> | c
 if _exists pbcopy; then
   alias c="pbcopy"
   alias p="pbpaste"
