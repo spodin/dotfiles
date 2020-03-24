@@ -33,7 +33,9 @@ optionally install:
 
   `git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install`
   
-- [SDKMAN](https://sdkman.io/install) to manage Maven, Gradle versions
+- [SDKMAN](https://sdkman.io/install) to manage Maven, Gradle versions:
+
+  `curl -s "https://get.sdkman.io?rcupdate=false" | bash`
 
 - [jEnv](https://github.com/jenv/jenv#11-installing-jenv) to manage JDK versions:
 
