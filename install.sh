@@ -35,7 +35,6 @@ install_dotfiles() {
   # Create symlinks
   ln -fs ${DOTFILES}/home/.gitconfig ${HOME}/.gitconfig
   ln -fs ${DOTFILES}/home/.gitignore_global ${HOME}/.gitignore_global
-  ln -fs ${DOTFILES}/home/.hyper.js ${HOME}/.hyper.js
   ln -fs ${DOTFILES}/home/.zshrc ${HOME}/.zshrc
   ln -fs ${DOTFILES}/home/.hushlogin ${HOME}/.hushlogin
 
