@@ -1,6 +1,6 @@
 ![cover image](https://user-images.githubusercontent.com/8811713/72927842-9e956600-3d5f-11ea-9f07-29adc53c968b.png)
 
-#.files
+# .files
 
 1. Clone and install:
 
