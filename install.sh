@@ -3,6 +3,8 @@
 #
 # This script installs the dotfiles.
 #
+# Execute with '-y' option for silent installation.
+#
 
 DOTFILES="$HOME/.dotfiles"
 
@@ -65,14 +67,19 @@ install() {
 }
 
 main() {
+  if [[ "$1" =~ -(Y|y) ]]; then
+    install
+    return
+  fi
+
   echo
   read -r -p "Install dotfiles? [yn] " answer
 
-  if [[ ${answer} =~ (y|Y) ]]; then
+  if [[ "$answer" =~ (y|Y) ]]; then
     install
   else
     echo "Aborted."
   fi
 }
 
-main
+main "$@"

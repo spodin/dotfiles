@@ -8,7 +8,7 @@ Git and [Zsh](https://www.zsh.org) are required.
 
 Clone and install:
 
-`git clone https://github.com/spodin/dotfiles.git ~/.dotfiles && ~/.dotfiles/install.sh`
+`git clone https://github.com/spodin/dotfiles.git ~/.dotfiles && ~/.dotfiles/install.sh -y`
    
 ## Post-installation Steps
 
