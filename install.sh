@@ -66,12 +66,7 @@ install() {
   echo "Completed successfully."
 }
 
-main() {
-  if [[ "$1" =~ -(Y|y) ]]; then
-    install
-    return
-  fi
-
+install_after_confirmation() {
   echo
   read -r -p "Install dotfiles? [yn] " answer
 
@@ -79,6 +74,14 @@ main() {
     install
   else
     echo "Aborted."
+  fi
+}
+
+main() {
+  if [[ "$1" =~ -(Y|y) ]]; then
+    install
+  else
+    install_after_confirmation
   fi
 }
 
