@@ -44,6 +44,11 @@ _exists bat && alias cat="bat --style=numbers,changes"
 # Print $PATH in readable view
 alias path='echo -e ${PATH//:/\\n}'
 
+# cd into whatever is the forefront Finder window (macOS)
+cdf() {
+  cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+}
+
 # Change directory to newly created
 mcd() {
   mkdir -p $@ && cd ${@:$#}
