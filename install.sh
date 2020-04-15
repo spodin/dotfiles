@@ -6,48 +6,58 @@
 
 DOTFILES="$HOME/.dotfiles"
 
+OH_MY_ZSH_INSTALLATION_DIR="$HOME/.oh-my-zsh"
+
 install_ohmyzsh() {
-  installation_dir="$HOME/.oh-my-zsh"
+  installed=0
 
-  ohmyzsh_installed=0
-
-  if [[ -d ${installation_dir} ]]; then
-    echo "Oh My Zsh is already installed to $installation_dir"
+  if [[ -d ${OH_MY_ZSH_INSTALLATION_DIR} ]]; then
+    echo "Seems, Oh My Zsh have already been installed into target directory."
   else
-    echo "Installing Oh My Zsh to $installation_dir ..."
-    git clone https://github.com/ohmyzsh/ohmyzsh.git ${installation_dir}
-    ohmyzsh_installed=$?
+    git clone https://github.com/ohmyzsh/ohmyzsh.git ${OH_MY_ZSH_INSTALLATION_DIR}
+    installed=$?
   fi
 
-  if [[ ${ohmyzsh_installed} -eq 0 ]]; then
+  if [[ ${installed} -eq 0 ]]; then
     # Install theme and custom plugins
     . ${DOTFILES}/custom.sh && install_customizations
   else
     echo
-    echo "Fatal error: unable to install Oh My Zsh!"
+    echo "Oh My Zsh installation has been failed with $installed error code!"
     exit 1
   fi
 }
 
+symlink() {
+  source=$1
+  target=$2
+  ln -fs ${source} ${target}
+}
+
+from_template() {
+  source=$1
+  target=$2
+  cp -n ${source} ${target}
+}
+
 install_dotfiles() {
-  echo "Installing dotfiles..."
+  symlink ${DOTFILES}/home/.gitconfig ${HOME}/.gitconfig
+  symlink ${DOTFILES}/home/.gitignore_global ${HOME}/.gitignore_global
+  symlink ${DOTFILES}/home/.zshrc ${HOME}/.zshrc
+  symlink ${DOTFILES}/home/.hushlogin ${HOME}/.hushlogin
 
-  # Create symlinks
-  ln -fs ${DOTFILES}/home/.gitconfig ${HOME}/.gitconfig
-  ln -fs ${DOTFILES}/home/.gitignore_global ${HOME}/.gitignore_global
-  ln -fs ${DOTFILES}/home/.zshrc ${HOME}/.zshrc
-  ln -fs ${DOTFILES}/home/.hushlogin ${HOME}/.hushlogin
-
-  # Create machine specific configuration files from templates
-  cp -n ${DOTFILES}/templates/.env ${HOME}/.env
-  cp -n ${DOTFILES}/templates/.gitlocal ${HOME}/.gitlocal
-  cp -n ${DOTFILES}/templates/.gitmessage ${HOME}/.gitmessage
-  cp -n ${DOTFILES}/templates/.warprc ${HOME}/.warprc
-  cp -n ${DOTFILES}/templates/ssh/config ${HOME}/.ssh/config
+  from_template ${DOTFILES}/templates/.env ${HOME}/.env
+  from_template ${DOTFILES}/templates/.gitlocal ${HOME}/.gitlocal
+  from_template ${DOTFILES}/templates/.gitmessage ${HOME}/.gitmessage
+  from_template ${DOTFILES}/templates/.warprc ${HOME}/.warprc
+  from_template ${DOTFILES}/templates/ssh/config ${HOME}/.ssh/config
 }
 
 install() {
+  echo "Installing Oh My Zsh into $OH_MY_ZSH_INSTALLATION_DIR ..."
   install_ohmyzsh
+
+  echo "Installing dotfiles..."
   install_dotfiles
 
   echo
@@ -62,7 +72,6 @@ main() {
     install
   else
     echo "Aborted."
-    exit 0
   fi
 }
 
