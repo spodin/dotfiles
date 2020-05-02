@@ -3,9 +3,11 @@
 #
 # Simple script to backup machine specific dotfiles.
 #
+# `DOTFILES_BACKUPS` environment variable can be used to specify backups custom location.
+#
 
+BACKUP_NAME="dotfiles_`date '+%Y-%m-%d_%H-%M-%S'`.tar.gz"
 BACKUP_PATH="${DOTFILES_BACKUPS:-"$HOME/.dotfiles.backup"}"
-BACKUP_FILENAME="$BACKUP_PATH/dotfiles_`date '+%Y-%m-%d_%H-%M-%S'`.tar.gz"
 
 TARGETS=(
   ${HOME}/.bin
@@ -25,9 +27,14 @@ backup() {
     exit 1
   fi
 
-  echo "Backup '$files' to '$BACKUP_FILENAME'"
+  if [[ ! -d ${BACKUP_PATH} ]]; then
+    mkdir -p ${BACKUP_PATH}
+  fi
 
-  mkdir -p ${BACKUP_PATH} && tar -czf ${BACKUP_FILENAME} ${files}
+  echo "Backup '$files'"
+
+  tar -czf "$TMPDIR/$BACKUP_NAME" ${files}
+  mv "$TMPDIR/$BACKUP_NAME" "$BACKUP_PATH/$BACKUP_NAME"
 }
 
 main() {
