@@ -31,10 +31,12 @@ backup() {
     mkdir -p ${BACKUP_PATH}
   fi
 
-  echo "Backup '$files'"
+  tmp_backup="$TMPDIR/$BACKUP_NAME"
 
-  tar -czf "$TMPDIR/$BACKUP_NAME" ${files}
-  mv "$TMPDIR/$BACKUP_NAME" "$BACKUP_PATH/$BACKUP_NAME"
+  echo "Backup '$files' as ${tmp_backup}"
+  tar -czf ${tmp_backup} ${files}
+
+  mv ${tmp_backup} "$BACKUP_PATH/$BACKUP_NAME"
 }
 
 main() {
