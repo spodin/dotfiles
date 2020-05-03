@@ -22,14 +22,6 @@ TARGETS=(
 
 backup() {
   files=$1
-  if [[ -z "$files" ]]; then
-    echo "No files to backup"
-    exit 1
-  fi
-
-  if [[ ! -d ${BACKUP_PATH} ]]; then
-    mkdir -p ${BACKUP_PATH}
-  fi
 
   tmp_backup="$TMPDIR/$BACKUP_NAME"
 
@@ -39,17 +31,32 @@ backup() {
   mv ${tmp_backup} "$BACKUP_PATH/$BACKUP_NAME"
 }
 
-main() {
-  existent_targets=""
+collect_targets() {
+  collected_targets=""
 
   for target in "${TARGETS[@]}"
   do
     if [[ -f "$target" || -d "$target" ]]; then
-      existent_targets="$existent_targets $target"
+      collected_targets="$collected_targets $target"
     fi
   done
 
-  backup "$existent_targets"
+  echo ${collected_targets}
+}
+
+main() {
+  if [[ ! -d ${BACKUP_PATH} ]]; then
+    mkdir -p ${BACKUP_PATH}
+  fi
+
+  existent_targets=$(collect_targets)
+
+  if [[ -z "$existent_targets" ]]; then
+    echo "No files to backup"
+    return 1
+  else
+    backup "$existent_targets"
+  fi
 }
 
 main
