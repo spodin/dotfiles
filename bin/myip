@@ -4,7 +4,7 @@
 # Prints my IP address.
 #
 # OPTIONS
-#      -e     Print external IP address
+#      -e     Print external (public) IP address
 #
 
 if [[ "$1" == "-e" ]]; then
