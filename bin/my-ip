@@ -3,5 +3,13 @@
 #
 # Prints my IP address.
 #
+# OPTIONS
+#      -e     Print external IP address
+#
 
-ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"
+if [[ "$1" == "-e" ]]; then
+  # print external IP address
+  curl https://ipinfo.io/ip
+else
+  ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"
+fi
