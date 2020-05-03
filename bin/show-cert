@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# show-certificate https://google.com github.com:443
+# show-cert https://google.com github.com:443
 #
 # google.com:443	Issuer	 C=US, O=Google Trust Services, CN=GTS CA 1O1
 # google.com:443	Not Before	 Sep 17 13:30:43 2019 GMT
