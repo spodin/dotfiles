@@ -23,7 +23,7 @@ TARGETS=(
 backup() {
   files=$1
 
-  tmp_backup="$TMPDIR/$BACKUP_NAME"
+  tmp_backup="${TMPDIR:-/tmp}/$BACKUP_NAME"
 
   echo "Backup '$files' as ${tmp_backup}"
   tar -czf ${tmp_backup} ${files}
