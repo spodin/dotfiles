@@ -31,3 +31,6 @@
 # Include commit template
 [commit]
   template = ~/.gitmessage
+
+[pull]
+  rebase = false
