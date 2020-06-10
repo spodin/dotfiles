@@ -47,6 +47,7 @@ install_dotfiles() {
   symlink ${DOTFILES}/home/.gitignore_global ${HOME}/.gitignore_global
   symlink ${DOTFILES}/home/.zshrc ${HOME}/.zshrc
   symlink ${DOTFILES}/home/.hushlogin ${HOME}/.hushlogin
+  symlink ${DOTFILES}/home/.tmux.conf ${HOME}/.tmux.conf
 
   from_template ${DOTFILES}/templates/.env ${HOME}/.env
   from_template ${DOTFILES}/templates/.gitlocal ${HOME}/.gitlocal
