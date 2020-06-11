@@ -9,11 +9,12 @@ _extend_path() {
   fi
 }
 
-export BAT_THEME="TwoDark"      # Bat theme (https://github.com/sharkdp/bat#highlighting-theme)
-export GPG_TTY=$(tty)           # GPG
-export HOMEBREW_NO_ANALYTICS=1  # Opt out of Homebrew’s analytics (https://docs.brew.sh/Analytics)
-export LANG="en_US.UTF-8"       # Locale
-export MC_SKIN="nicedark"       # Midnight Commander skin
+export BAT_THEME="TwoDark"        # Bat theme (https://github.com/sharkdp/bat#highlighting-theme)
+export GPG_TTY=$(tty)             # GPG
+export HOMEBREW_NO_ANALYTICS=1    # Opt out of Homebrew’s analytics (https://docs.brew.sh/Analytics)
+export LANG="en_US.UTF-8"         # Locale
+export MC_SKIN="nicedark"         # Midnight Commander skin
+export DISABLE_AUTO_TITLE="true"
 
 # SDKMAN (https://sdkman.io)
 export SDKMAN_DIR="$HOME/.sdkman"
