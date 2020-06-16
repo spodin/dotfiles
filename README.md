@@ -50,6 +50,6 @@
 - [Menlo for Powerline](setup/fonts/menlo-for-powerline) font
 
 - [Oceanic Next](setup/terminal-themes/oceanic-next) terminal theme:
-  - GNOME Terminal by [@denysdovhan](https://github.com/denysdovhan/oceanic-next-gnome-terminal)  
+  - GNOME Terminal by [@denysdovhan](https://github.com/denysdovhan/oceanic-next-gnome-terminal) (`dconf-tools` may be required)
   - elementary OS
   - macOS Terminal [@robinbentley](https://github.com/robinbentley/oceanic-next-macos-terminal)
