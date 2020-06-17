@@ -2,7 +2,6 @@
 
 #
 # Adds fuzzy search for directories "warped" with WD Zsh plugin.
-#
 # Activates with [Control+B].
 #
 
