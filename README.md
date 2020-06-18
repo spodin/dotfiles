@@ -47,9 +47,15 @@
 
 ## Setup
 
-- [Menlo for Powerline](setup/fonts/menlo-for-powerline.zip) font
+- [Fonts](setup/fonts):
 
-- [Oceanic Next](setup/terminal-themes/oceanic-next) terminal theme:
-  - GNOME Terminal by [@denysdovhan](https://github.com/denysdovhan/oceanic-next-gnome-terminal) (`dconf-tools` may be required)
-  - elementary OS
-  - macOS Terminal [@robinbentley](https://github.com/robinbentley/oceanic-next-macos-terminal)
+  ```bash
+  mkdir -p ~/.fonts
+  ls -d $DOTFILES/setup/fonts/*.zip | xargs -I{} sh -c 'unzip $1 -d ~/.fonts/$(basename $1 .zip)' -- {}
+  sudo fc-cache -fv
+  ```
+
+- "Oceanic Next" terminal theme:
+  - [GNOME Terminal](setup/terminal-themes/oceanic-next/oceanic-next-gnome.sh) by [@denysdovhan](https://github.com/denysdovhan/oceanic-next-gnome-terminal) (`dconf-tools` may be required)
+  - [elementary OS](setup/terminal-themes/oceanic-next/oceanic-next-elementaryos.sh)
+  - [macOS Terminal](setup/terminal-themes/oceanic-next/oceanic-next-macos.terminal) by [@robinbentley](https://github.com/robinbentley/oceanic-next-macos-terminal)
