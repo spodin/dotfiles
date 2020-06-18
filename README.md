@@ -47,7 +47,7 @@
 
 ## Setup
 
-- [Menlo for Powerline](setup/fonts/menlo-for-powerline) font
+- [Menlo for Powerline](setup/fonts/menlo-for-powerline.zip) font
 
 - [Oceanic Next](setup/terminal-themes/oceanic-next) terminal theme:
   - GNOME Terminal by [@denysdovhan](https://github.com/denysdovhan/oceanic-next-gnome-terminal) (`dconf-tools` may be required)
