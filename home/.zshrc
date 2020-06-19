@@ -14,7 +14,6 @@ plugins=(
   gradle
   history-substring-search
   jira
-  sudo
   wd
   z
   zsh-autosuggestions
