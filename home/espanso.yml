@@ -1,0 +1,20 @@
+# espanso configuration file (default.yml)
+# https://espanso.org/docs/
+
+matches:
+  # Date for Zettelkasten notes
+  - trigger: ":zkdate"
+    replace: "{{zkdate}}"
+    vars:
+      - name: zkdate
+        type: date
+        params:
+          format: "%Y%m%d%H%M"
+
+  # Markdown code block with Java syntax
+  - trigger: ":java"
+    replace: "```java\n$|$\n```"
+
+  # Markdown code block
+  - trigger: ":code"
+    replace: "```\n$|$\n```"
