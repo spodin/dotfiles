@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# OCEANIC NEXT terminal theme for elementary OS (https://elementary.io)
+#
+
 SCHEMA="io.elementary.terminal.settings"
 
 gsettings set "$SCHEMA" palette '#1B2B34:#E06C75:#99C794:#FAC863:#6699CC:#C594C5:#5FB3B3:#A7ADBA:#4F5B66:#EC5F67:#99C794:#FAC863:#6699CC:#C594C5:#5FB3B3:#D8DEE9'
