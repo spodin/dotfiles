@@ -87,7 +87,7 @@ update_fzf() {
 
   info "Updating fzf"
 
-  cd ${HOME}/.fzf && git pull origin master
+  git -C "${HOME}/.fzf" pull origin master
 
   finish
 }
@@ -95,7 +95,7 @@ update_fzf() {
 update_dotfiles() {
   info "Updating dotfiles"
 
-  cd ${DOTFILES} && git pull origin master
+  git -C "${DOTFILES}" pull origin master
 
   if [[ $? -eq 0 ]]; then
     finish
