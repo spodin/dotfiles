@@ -58,4 +58,4 @@
   - [elementary OS](setup/terminal-themes/oceanic-next/oceanic-next-elementary.sh)
   - [macOS Terminal](setup/terminal-themes/oceanic-next/oceanic-next-macos.terminal) by [@robinbentley](https://github.com/robinbentley/oceanic-next-macos-terminal)
   
-<img width="850" alt="oceanic-next-terminal" src="https://user-images.githubusercontent.com/8811713/85595979-0246f680-b652-11ea-8350-048427353030.png">  
+<img width="850" alt="oceanic-next-terminal" src="https://user-images.githubusercontent.com/8811713/105110722-e90f0700-5ac7-11eb-942e-9864383c34f7.png">  
