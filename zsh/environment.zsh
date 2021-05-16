@@ -23,7 +23,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # jEnv (https://www.jenv.be)
 if [[ -d "$HOME/.jenv" ]]; then
   _extend_path "$HOME/.jenv/bin"
-  eval "$(jenv init -)"
+  eval "$(jenv init - --no-rehash)"
+  (jenv rehash &) 2> /dev/null # to rehash in background
 fi
 
 # Load fzf configuration (https://github.com/junegunn/fzf)
