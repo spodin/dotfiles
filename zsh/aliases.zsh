@@ -2,10 +2,6 @@
 # Aliases
 #
 
-_exists() {
-  command -v $1 > /dev/null 2>&1
-}
-
 # Quicker navigation
 alias ..="cd .."
 alias ..2="cd ../.."

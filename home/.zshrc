@@ -6,7 +6,6 @@ export DOTFILES="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="spaceship"
 
-# Oh My Zsh Plugins
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
 plugins=(
   docker
@@ -20,19 +19,9 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-# Load Oh My Zsh
 . "$ZSH/oh-my-zsh.sh"
+. "$DOTFILES/lib/functions.zsh"
 
-_load_settings() {
-  _dir="$1"
-  if [ -d "$_dir" ]; then
-    for config in "$_dir"/**/*(N-.); do
-      . $config
-    done
-  fi
-}
-
-# Load configuration files
 _load_settings "$DOTFILES/zsh"
 
 # Load local configuration
