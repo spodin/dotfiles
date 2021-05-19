@@ -31,3 +31,11 @@ if [[ -d "$JENV_HOME" ]]; then
   eval "$(jenv init - --no-rehash)"
   (jenv rehash &) 2> /dev/null # to rehash in background
 fi
+
+# pyenv (https://github.com/pyenv/pyenv#installation)
+export PYENV_ROOT="$HOME/.pyenv"
+if [[ -d "$PYENV_ROOT" ]]; then
+  _extend_path "$PYENV_ROOT/bin"
+  eval "$(pyenv init - --no-rehash)"
+  (pyenv rehash &) 2> /dev/null # to rehash in background
+fi
