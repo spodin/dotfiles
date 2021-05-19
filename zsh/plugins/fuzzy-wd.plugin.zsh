@@ -5,7 +5,7 @@
 # Activates with [Control+B].
 #
 
-WD_CONFIG="$HOME/.warprc"
+WD_CONFIG=${WD_CONFIG:-$HOME/.warprc}
 
 fuzzy_wd() {
   # load warp points
