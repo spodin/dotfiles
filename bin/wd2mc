@@ -1,0 +1,31 @@
+#!/bin/zsh
+
+#
+# Overwrites mc (Midnight Commander) directories hotlist with added warp points (WD ZSH plugin).
+#
+
+WD_CONFIG=${WD_CONFIG:-$HOME/.warprc}
+MC_HOTLIST=$HOME/.config/mc/hotlist
+
+copy() {
+  # load warp points
+  wd_entries=$(sed "s:${HOME}:~:g" "$WD_CONFIG")
+
+  # map warp points to mc hotlist entries
+  mc_entries=""
+  while IFS= read -r line
+    do
+      if [[ $line != "" ]]; then
+        arr=(${(s,:,)line})
+        key=${arr[1]}
+        val=${arr[2]}
+
+        mc_entries="${mc_entries}\nENTRY \"${key}\" URL \"${val}\""
+      fi
+  done <<< "$wd_entries"
+
+  # overwrite mc hotlist with collected entries
+  echo ${mc_entries} > $MC_HOTLIST
+}
+
+copy  
