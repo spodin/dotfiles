@@ -19,6 +19,9 @@ alias open='open_command'
 alias o='open'
 alias oo='open .'
 
+# Run Midnight Commander without subshell (for increased performance)
+alias mc="mc --nosubshell"
+
 # Enable aliases with sudo
 alias sudo="sudo "
 
