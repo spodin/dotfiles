@@ -1,0 +1,17 @@
+#
+# Local Git configuration.
+#
+
+[user]
+  # git config -f ~/.gitlocal user.name "Your Name"
+  name =
+
+  # git config -f ~/.gitlocal user.email "name@example.com"
+  email =
+
+  # git config -f ~/.gitlocal user.signingkey <key id>
+  # signingkey =
+
+[commit]
+  # git config -f ~/.gitlocal commit.gpgsign true
+  # gpgsign = true
