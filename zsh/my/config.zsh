@@ -15,6 +15,7 @@ export MC_SKIN="onedark"                   # Midnight Commander skin
 export DISABLE_AUTO_TITLE="true"
 export DISABLE_AUTO_UPDATE="true"          # Disable update prompt and auto update
 export WD_CONFIG="$DOTFILES/zsh/.warprc"
+export _Z_DATA="$DOTFILES/zsh/.z"
 
 _exists exa && export EXA_ICON_SPACING=2
 
