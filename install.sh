@@ -62,6 +62,11 @@ install() {
   symlink "${DOTFILES}"/.gitconfig "${HOME}"/.gitconfig
   symlink "${DOTFILES}"/.gitignore-global "${HOME}"/.gitignore-global
 
+  # Midnight Commander
+  symlink "${DOTFILES}"/mc/skins "${HOME}"/.local/share/mc/skins
+  symlink "${DOTFILES}"/mc/config/filehighlight.ini "${HOME}"/.config/mc/filehighlight.ini
+  symlink "${DOTFILES}"/mc/config/panels.ini "${HOME}"/.config/mc/panels.ini
+
   from_template "${DOTFILES}"/.hushlogin "${HOME}"/.hushlogin
   from_template "${DOTFILES}"/templates/.zshenv "${HOME}"/.zshenv
   from_template "${DOTFILES}"/templates/.env "${HOME}"/.env
