@@ -1,8 +1,12 @@
 #
-# Aliases.
+# Imports.
 #
 
+# Aliases
 source "$DOTFILES/zsh/my/aliases.zsh"
+
+# macOS specific configuration.
+[[ "$(uname -s)" == 'Darwin' ]] && source "$DOTFILES/zsh/my/config-macos.zsh"
 
 #
 # Environment configuration.
@@ -79,9 +83,3 @@ if [[ -d "$PYENV_ROOT" ]]; then
   eval "$(pyenv init - --no-rehash)"
   (pyenv rehash &) 2> /dev/null # to rehash in background
 fi
-
-#
-# Include OS specific configurations.
-#
-
-[[ "$(uname -s)" == 'Darwin' ]] && source "$DOTFILES/zsh/my/config-macos.zsh"
