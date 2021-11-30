@@ -14,12 +14,9 @@ cleanup() {
 clone() {
   local url="$1"
   local target="$2"
-
-  if [[ -d ${target} ]]; then
-    return # skip as it's already exists
+  if [[ ! -d ${target} ]]; then
+    git clone --depth=1 "${url}" "${target}"
   fi
-
-  git clone --depth=1 "${url}" "${target}"
 }
 
 repo_name() {
