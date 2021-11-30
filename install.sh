@@ -3,9 +3,10 @@
 set -Eeuo pipefail
 trap cleanup SIGINT SIGTERM ERR EXIT
 
-DOTFILES="$HOME/.config/dotfiles"
 ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$ZSH/custom"
+
+DOTFILES="$HOME/.config/dotfiles"
 
 cleanup() {
   trap - SIGINT SIGTERM ERR EXIT
