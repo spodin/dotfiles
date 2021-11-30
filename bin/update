@@ -1,0 +1,142 @@
+#!/usr/bin/env zsh
+
+#
+# Updates various system components depending on their presence.
+#
+
+e='\033'
+RESET="${e}[0m"
+CYAN="${e}[0;96m"
+RED="${e}[0;91m"
+GREEN="${e}[0;92m"
+
+exists() {
+  command -v $1 > /dev/null 2>&1
+}
+
+info() {
+  echo -e "${CYAN}${*}${RESET}"
+}
+
+error() {
+  echo -e "${RED}${*}${RESET}"
+}
+
+success() {
+  echo -e "${GREEN}${*}${RESET}"
+}
+
+finish() {
+  success "Done."
+  echo
+  sleep 1
+}
+
+update_brew() {
+  if ! exists brew; then
+    return
+  fi
+
+  info "Updating Homebrew"
+
+  brew update
+  brew upgrade
+
+  # see: https://github.com/buo/homebrew-cask-upgrade#installation
+  if brew tap | grep -q "buo/cask-upgrade"; then
+    info "+ updating Homebrew Cask"
+    brew cu -ay --no-brew-update --cleanup
+  fi
+
+  # see: https://github.com/mas-cli/mas#-usage
+  if exists mas; then
+    if [[ $(mas outdated) ]]; then
+      info "+ updating App Store using Homebrew MAS"
+      mas upgrade
+    else
+      info "+ updating App Store: nothing to upgrade"
+    fi
+  fi
+
+  brew cleanup
+
+  finish
+}
+
+update_apt_get() {
+  if ! exists apt-get; then
+    return
+  fi
+
+  info "Updating Ubuntu and installed packages"
+
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get autoremove -y
+  sudo apt-get autoclean -y
+
+  finish
+}
+
+update_zsh_custom() {
+  for custom_source in "$1"/*/; do
+    if [[ -d "$custom_source/.git" ]]; then
+      info "Updating $custom_source"
+      git -C "$custom_source" pull
+    fi
+  done
+}
+
+update_zsh() {
+  if [[ ! -f $ZSH/tools/upgrade.sh ]]; then
+    return
+  fi
+
+  info "Updating Oh My Zsh"
+  env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
+
+  info "Updating Oh My Zsh custom sources (plugins, themes)"
+  update_zsh_custom "$ZSH/custom/plugins"
+
+  finish
+}
+
+update_fzf() {
+  if [[ ! -d $HOME/.fzf ]]; then
+    return
+  fi
+
+  info "Updating fzf"
+  git -C "${HOME}/.fzf" pull origin master
+
+  finish
+}
+
+update_dotfiles() {
+  info "Updating dotfiles"
+
+  current_branch="$(git -C "${DOTFILES}" rev-parse --abbrev-ref HEAD)"
+  git -C "${DOTFILES}" pull origin "${current_branch}"
+
+  if [[ $? -eq 0 ]]; then
+    finish
+  else
+    error "There was an error updating!"
+  fi
+}
+
+on_finish() {
+  success "Everything has been updated!"
+  echo
+}
+
+main() {
+  update_brew
+  update_apt_get
+  update_zsh
+  update_fzf
+  update_dotfiles
+  on_finish
+}
+
+main "$*"
