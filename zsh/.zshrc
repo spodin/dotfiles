@@ -11,6 +11,7 @@ source "$DOTFILES/zsh/powerlevel/powerlevel.zsh"
 [[ -f "$HOME/.env" ]] && source "$HOME/.env"
 
 plugins=(
+  fz
   fzf-tab
   history-substring-search
   wd

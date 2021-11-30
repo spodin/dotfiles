@@ -59,6 +59,7 @@ install() {
   plugin "https://github.com/zsh-users/zsh-autosuggestions.git"
   plugin "https://github.com/spodin/zsh-fuzzy-wd.git"
   plugin "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+  plugin "https://github.com/changyuheng/fz"
 
   symlink "${DOTFILES}"/.gitconfig "${HOME}"/.gitconfig
   symlink "${DOTFILES}"/.gitignore-global "${HOME}"/.gitignore-global
