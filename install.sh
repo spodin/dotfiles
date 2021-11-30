@@ -74,7 +74,7 @@ install() {
   from_template "${DOTFILES}"/templates/.env "${HOME}"/.env
   from_template "${DOTFILES}"/templates/.gitlocal "${HOME}"/.gitlocal
   from_template "${DOTFILES}"/templates/.warprc "${HOME}"/.warprc
-  from_template "${DOTFILES}"/templates/ssh/.ssh-config "${HOME}"/.ssh/config
+  from_template "${DOTFILES}"/templates/.ssh-config "${HOME}"/.ssh/config
 }
 
 install "$@"
