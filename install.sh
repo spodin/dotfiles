@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+#
+# Dotfiles installation script.
+#
+#   - Installs "Oh My Zsh" and it's components into ~/.oh-my-zsh:
+#     - "Powerlevel10k" as prompt theme.
+#     - Not bundled plugins.
+#
+#   - Creates symlinks for files and folders that are synced using Git.
+#
+#   - Creates machine specific configuration files from templates.
+#
+
 set -Eeuo pipefail
 trap cleanup SIGINT SIGTERM ERR EXIT
 
@@ -55,11 +67,11 @@ install() {
 
   theme "https://github.com/romkatv/powerlevel10k.git"
 
+  plugin "https://github.com/changyuheng/fz"
   plugin "https://github.com/Aloxaf/fzf-tab.git"
   plugin "https://github.com/zsh-users/zsh-autosuggestions.git"
   plugin "https://github.com/spodin/zsh-fuzzy-wd.git"
   plugin "https://github.com/zsh-users/zsh-syntax-highlighting.git"
-  plugin "https://github.com/changyuheng/fz"
 
   symlink "${DOTFILES}"/.gitconfig "${HOME}"/.gitconfig
   symlink "${DOTFILES}"/.gitignore-global "${HOME}"/.gitignore-global
