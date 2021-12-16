@@ -1,15 +1,11 @@
 export DOTFILES="$HOME/.config/dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 
+export DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_UPDATE="true"
+
 # Common functions
 source "$DOTFILES/zsh/lib/functions.zsh"
-
-# Configuration
-source "$DOTFILES/zsh/powerlevel/powerlevel.zsh"
-source "$DOTFILES/zsh/my/config.zsh"
-
-# Machine specific configuration
-[[ -f "$HOME/.env" ]] && source "$HOME/.env"
 
 plugins=(
   fz
@@ -22,7 +18,15 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+# Theme and Oh My Zsh
+source "$DOTFILES/zsh/powerlevel/powerlevel.zsh"
 source "$ZSH/oh-my-zsh.sh"
+
+# Configuration
+source "$DOTFILES/zsh/my/config.zsh"
+
+# Machine specific configuration
+[[ -f "$HOME/.env" ]] && source "$HOME/.env"
 
 # Fzf (https://github.com/junegunn/fzf)
 [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"

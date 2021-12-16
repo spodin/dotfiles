@@ -16,8 +16,6 @@ export BAT_THEME="OneHalfDark"             # Bat theme (https://github.com/shark
 export GPG_TTY=$(tty)                      # GPG
 export LANG="en_US.UTF-8"                  # Locale
 export MC_SKIN="onedark"                   # Midnight Commander skin
-export DISABLE_AUTO_TITLE="true"
-export DISABLE_AUTO_UPDATE="true"          # Disable update prompt and auto update
 export WD_CONFIG="$DOTFILES/zsh/.warprc"
 export _Z_DATA="$DOTFILES/zsh/.z"
 
