@@ -4,10 +4,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Common functions
 source "$DOTFILES/zsh/lib/functions.zsh"
 
-# Powerlevel10k theme
+# Configuration
 source "$DOTFILES/zsh/powerlevel/powerlevel.zsh"
+source "$DOTFILES/zsh/my/config.zsh"
 
-# Local configuration
+# Machine specific configuration
 [[ -f "$HOME/.env" ]] && source "$HOME/.env"
 
 plugins=(
@@ -22,7 +23,6 @@ plugins=(
 )
 
 source "$ZSH/oh-my-zsh.sh"
-source "$DOTFILES/zsh/my/config.zsh"
 
 # Fzf (https://github.com/junegunn/fzf)
 [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
