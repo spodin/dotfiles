@@ -39,6 +39,14 @@ if _exists exa; then
   alias tree="exa --tree --icons"
 fi
 
+# Generate random passwords
+if _exists pwgen; then
+  password() {
+    length=${1-16}
+    pwgen -cnys1 "$length" 1
+  }
+fi
+
 # Change directory to newly created
 mcd() {
   mkdir -p "$@" && cd "${@:$#}"
