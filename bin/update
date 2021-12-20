@@ -29,7 +29,6 @@ success() {
 finish() {
   success "Done."
   echo
-  sleep 1
 }
 
 update_brew() {
