@@ -21,6 +21,7 @@ alias o='open'
 alias oo='open .&& '
 
 alias g="git"
+alias d="docker"
 alias mc="mc --nosubshell" # Run mc without subshell (for increased performance)
 alias rm="rm -i" # Remove files interactively
 alias path='echo -e ${PATH//:/\\n}' # Print $PATH in readable view
