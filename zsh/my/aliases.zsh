@@ -31,7 +31,7 @@ alias getpage='wget --no-clobber --page-requisites --html-extension --convert-li
 
 # Replace cat with bat (https://github.com/sharkdp/bat) if available
 if _exists bat; then
-  alias cat="bat --style=numbers,changes"
+  alias cat="bat --style=plain"
 fi
 
 # Replace ls with exa (https://the.exa.website) if available
