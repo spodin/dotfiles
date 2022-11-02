@@ -18,6 +18,7 @@ export LANG="en_US.UTF-8"                  # Locale
 export MC_SKIN="onedark"                   # Midnight Commander skin
 export WD_CONFIG="$DOTFILES/zsh/.warprc"
 export _Z_DATA="$DOTFILES/zsh/.z"
+export FZ_HISTORY_CD_CMD="zshz"
 
 _exists exa && export EXA_ICON_SPACING=2
 
