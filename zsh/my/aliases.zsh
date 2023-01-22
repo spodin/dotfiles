@@ -11,6 +11,7 @@ alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 alias -- -='cd -'
 alias -- ~="cd ~"
+alias a="z"
 alias q="~ && clear"
 
 alias l="ls -lah"
