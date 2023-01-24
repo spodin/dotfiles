@@ -1,6 +1,6 @@
 # dotfiles
 
-<img width="1105" alt="Screenshot 2021-12-07 at 01 12 42" src="https://user-images.githubusercontent.com/8811713/144937712-b6bd1b27-9818-4064-87a8-dcf240638d0d.png">
+<img width="1105" alt="preview" src="https://user-images.githubusercontent.com/8811713/214385541-2234ffc1-2017-4106-b3d3-bea869862a76.png">
 
 ## Installation
 
