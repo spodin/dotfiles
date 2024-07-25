@@ -20,7 +20,7 @@ export WD_CONFIG="$DOTFILES/zsh/.warprc"
 export _Z_DATA="$DOTFILES/zsh/.z"
 export FZ_HISTORY_CD_CMD="zshz"
 
-_exists exa && export EXA_ICON_SPACING=2
+_exists eza && export EXA_ICON_SPACING=2
 
 # Preferred editor for local and remote sessions
 if [[ -n "$SSH_CONNECTION" ]]; then

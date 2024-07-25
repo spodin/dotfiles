@@ -16,7 +16,7 @@ git clone https://github.com/spodin/dotfiles.git ~/.config/dotfiles && ~/.config
 
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - shell theme
 
-- [Exa](https://the.exa.website) - `ls` replacement
+- [Eza](https://eza.rocks) - `ls` replacement
 
 - [Bat](https://github.com/sharkdp/bat) - `cat` replacement
 

@@ -35,10 +35,10 @@ if _exists bat; then
   alias cat="bat --style=plain"
 fi
 
-# Replace ls with exa (https://the.exa.website) if available
-if _exists exa; then
-  alias ls="COLUMNS=90 exa --icons"
-  alias tree="exa --tree --icons"
+# Replace ls with eza (https://eza.rocks) if available
+if _exists eza; then
+  alias ls="COLUMNS=90 eza --icons"
+  alias tree="eza --tree --icons"
 fi
 
 # Generate random passwords
@@ -56,7 +56,7 @@ mcd() {
 
 # Copy/paste, intended to use with pipes: cat <somefile> | c
 if _exists pbcopy; then
-  alias c="pbcopy"
+  alias c="pbcopy | tr -d '\n'"
   alias p="pbpaste"
 elif _exists xclip; then
   alias c="xclip -selection clipboard"
