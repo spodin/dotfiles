@@ -19,6 +19,7 @@ export MC_SKIN="onedark"                   # Midnight Commander skin
 export WD_CONFIG="$DOTFILES/zsh/.warprc"
 export _Z_DATA="$DOTFILES/zsh/.z"
 export FZ_HISTORY_CD_CMD="zshz"
+export TERM="xterm-256color"
 
 _exists eza && export EXA_ICON_SPACING=2
 
